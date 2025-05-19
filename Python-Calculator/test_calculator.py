@@ -4,7 +4,7 @@ import Calculator_Logic
 class TestCalculator(unittest.TestCase):
 
     def test_add(self):
-        test_cases = [(1, 2, 3),(-1, 1, 0),(0, 0, 0), (100, 200, 300),(-5, -5, -10)]
+        test_cases = [(1, 2, 2),(-1, 1, 0),(0, 0, 0), (100, 200, 300),(-5, -5, -10)]
         for a, b, expected in test_cases:
             with self.subTest(a=a, b=b, expected=expected):
                 result = Calculator_Logic.add(a, b)

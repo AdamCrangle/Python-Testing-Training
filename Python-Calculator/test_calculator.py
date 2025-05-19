@@ -4,25 +4,26 @@ import Calculator_Logic
 class TestCalculator(unittest.TestCase):
 
     def test_add(self):
-        self.assertEqual(Calculator_Logic.add(3, 4), 7)
-        self.assertEqual(Calculator_Logic.add(1, 2), 3)
-        self.assertEqual(Calculator_Logic.add(-6, 6), 0)
-        self.assertEqual(Calculator_Logic.add(1, 2), 3)  # fixed expected value
-        self.assertEqual(Calculator_Logic.add(-6, 5), -1)
+        test_cases = [(1, 2, 3),(-1, 1, 0),(0, 0, 0), (100, 200, 300),(-5, -5, -10)]
+        for a, b, expected in test_cases:
+            with self.subTest(a=a, b=b, expected=expected):
+                result = Calculator_Logic.add(a, b)
+                self.assertEqual(result, expected, f"Expected {a} + {b} = {expected}, but got {result}")
+
 
     def test_sub(self):
-        self.assertEqual(Calculator_Logic.sub(4, 4), 0)
-        self.assertEqual(Calculator_Logic.sub(4, 3), 1)
-        self.assertEqual(Calculator_Logic.sub(4, 2), 2)
-        self.assertEqual(Calculator_Logic.sub(10, 100), -90)
-        self.assertEqual(Calculator_Logic.sub(100, 100), 0)
+        test_cases = [(1, 2, -1),(5, 5, 0),(7, 2, 5), (100, 10, 90),(4, 2, 2)]
+        for a, b, expected in test_cases:
+            with self.subTest(a=a, b=b, expected=expected):
+                result = Calculator_Logic.sub(a, b)
+                self.assertEqual(result, expected, f"Expected {a} - {b} = {expected}, but got {result}")
 
     def test_mul(self):
-        self.assertEqual(Calculator_Logic.mul(4, 4), 16)
-        self.assertEqual(Calculator_Logic.mul(4, 3), 12)
-        self.assertEqual(Calculator_Logic.mul(5, 5), 25)
-        self.assertEqual(Calculator_Logic.mul(10, 10), 100)
-        self.assertEqual(Calculator_Logic.mul(6, 6), 36)
+        test_cases = [(1, 2, 2), (5, 5, 25), (0, 0, 0), (100, 10, 1000), (2, 2, 4)]
+        for a, b, expected in test_cases:
+            with self.subTest(a=a, b=b, expected=expected):
+                result = Calculator_Logic.mul(a, b)
+                self.assertEqual(result, expected, f"Expected {a} * {b} = {expected}, but got {result}")
 
 if __name__ == '__main__':
     unittest.main()

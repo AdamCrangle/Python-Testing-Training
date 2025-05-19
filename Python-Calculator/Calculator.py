@@ -2,8 +2,6 @@ import Calculator_Logic
 UserInput = ""
 print("Hello Welcome To Calculator")
 print("=============================")
-
-
 print("To Access The Calculator Please Enter The Type")
 while UserInput != "D":
 
